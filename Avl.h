@@ -9,6 +9,9 @@ private:
     Node *tree;
 
     int getHeight(Node *tree);
+
+public:
+    int getHeight();
 };
 
 

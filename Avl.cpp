@@ -11,3 +11,7 @@ int Avl::getHeight(Node *tree) {
         return 1 + max(getHeight(tree->left), getHeight(tree->right));
     }
 }
+
+int Avl::getHeight() {
+    return getHeight(tree);
+}
