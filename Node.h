@@ -1,5 +1,5 @@
-#ifndef AVL_NODE_H
-#define AVL_NODE_H
+#ifndef UNTITLED_NODE_H
+#define UNTITLED_NODE_H
 
 class Node {
 public:
