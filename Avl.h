@@ -20,6 +20,8 @@ private:
 
     Node *reBalance(Node *&node);
 
+    Node *addNode(Node *&node, int data);
+
 public:
     int getHeight();
 };

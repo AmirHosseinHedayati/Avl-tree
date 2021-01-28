@@ -64,3 +64,16 @@ Node *Avl::reBalance(Node *&node) {
     }
     return node;
 }
+
+Node *Avl::addNode(Node *&node, int data) {
+    if (node == nullptr) {
+        Node *temp = new Node();
+        temp->data = data;
+        return temp;
+    } else if (node->data > data) {
+        node->left = addNode(node->left, data);
+    } else {
+        node->right = addNode(node->right, data);
+    }
+    return reBalance(node);
+}
