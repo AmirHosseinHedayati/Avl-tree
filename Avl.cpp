@@ -23,7 +23,7 @@ void Avl::updateHeightNode(Node *&node) {
 Node *Avl::rotateRight(Node *&node) {
     Node *left = node->left;
     Node *right = left->right;
-    left->right = node;
+    left->right = node;   // put node in child right of child left
     node->left = right;
     updateHeightNode(node);
     updateHeightNode(left);
@@ -65,33 +65,34 @@ Node *Avl::reBalance(Node *&node) {
     return node;
 }
 
-Node *Avl::addNode(Node *&node, int data) {
+Node *Avl::addNode(Node *&node,const std::string &word , const std::string &meaning) {
     if (node == nullptr) {
         Node *temp = new Node();
-        temp->data = data;
+        temp->word = word;
+        temp->meaning = meaning;
         return temp;
-    } else if (node->data > data) {
-        node->left = addNode(node->left, data);
+    } else if (compareStrings(node->word , word) == 1 ) {
+        node->left = addNode(node->left, word , meaning);                    /////////////////
     } else {
-        node->right = addNode(node->right, data);
+        node->right = addNode(node->right, word , meaning);                  /////////////////
     }
     return reBalance(node);
 }
 
-Node *Avl::deleteNode(Node *&node, int data) {
+Node *Avl::deleteNode(Node *&node, const std::string &word) {
     if (node == nullptr) {
         return nullptr;
-    } else if (node->data < data) {
-        node->right = deleteNode(node->right, data);
-    } else if (node->data > data) {
-        node->left = deleteNode(node->left, data);
+    } else if (compareStrings(node->word , word) == -1) {
+        node->right = deleteNode(node->right, word);               /////////////////
+    } else if (compareStrings(node->word , word) == 1) {
+        node->left = deleteNode(node->left, word);                 /////////////////
     } else {
         if (node->left == nullptr || node->right == nullptr) {
             node = (node->left == nullptr) ? node->right : node->left;
         } else {
             Node *mostLeftChild = node->right;
-            node->data = mostLeftChild->data;
-            node->right = deleteNode(node->right, node->data);
+            node->word = mostLeftChild->word;
+            node->right = deleteNode(node->right, node->word);
         }
     }
     if (node != nullptr) {
@@ -100,14 +101,14 @@ Node *Avl::deleteNode(Node *&node, int data) {
     return node;
 }
 
-Node *Avl::find(Node *&node, int data) {
+Node *Avl::find(Node *&node, const std::string &word) {
     if (node != nullptr) {
-        if (node->data == data)
+        if (compareStrings(node->word , word) == 0)
             return node;
-        else if (node->data < data)
-            return find(node->right, data);
+        else if (compareStrings(node->word , word) == -1)
+            return find(node->right, word);                      /////////////////
         else
-            return find(node->left, data);
+            return find(node->left, word);                       /////////////////
     } else
         return nullptr;
 }
@@ -116,5 +117,17 @@ Node *Avl::getTree() const {
     return tree;
 }
 
+int Avl::compareStrings(const std::string& s1,const std::string&  s2) {
+    int compare = s1.compare(s2);
+    if (compare > 0){
+        return 1;
+    }
+    else if (compare < 0){
+        return -1;
+    }
+    else if (compare == 1){
+        return 0;
+    }
+}
 
 

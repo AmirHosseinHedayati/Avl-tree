@@ -20,11 +20,13 @@ private:
 
     Node *reBalance(Node *&node);
 
-    Node *addNode(Node *&node, int data);
+    Node *addNode(Node *&node, const std::string &word , const std::string &meaning);
 
-    Node *deleteNode(Node *&node, int data);
+    Node *deleteNode(Node *&node, const std::string &word );
 
-    Node *find(Node *&node, int data);
+    Node *find(Node *&node, const std::string &word);
+
+    int compareStrings(const std::string& s1,const std::string&  s2);
 
 public:
     int getHeight();
@@ -33,18 +35,18 @@ public:
         tree = reBalance(tree);
     }
 
-    void addNode(int data) {
-        tree = addNode(tree, data);
+    void addNode(const std::string &word ,const std::string &meaning) {
+        tree = addNode(tree, word , meaning);
     }
 
     Node *getTree() const;
 
-    void deleteNode(int data) {
-        tree = deleteNode(tree, data);
+    void deleteNode(const std::string &word) {
+        tree = deleteNode(tree, word);
     }
 
-    Node *find(int data) {
-        return find(tree, data);
+    Node *find(const std::string &word) {
+        return find(tree, word);
     }
 };
 

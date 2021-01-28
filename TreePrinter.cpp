@@ -8,7 +8,7 @@ void TreePrinter:: printT(const std::string &prefix, const Node *node, bool isLe
 
         std::cout << (isLeft ? "├── " : "└── ");
 
-        std::cout << node->data << std::endl;
+        std::cout << node->word << " = " << node->meaning <<std::endl;
 
         printT(prefix + (isLeft ? "|   " : "    "), node->left, true);
         printT(prefix + (isLeft ? "|   " : "    "), node->right, false);
