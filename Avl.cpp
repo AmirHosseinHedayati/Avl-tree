@@ -29,3 +29,13 @@ Node *Avl::rotateRight(Node *&node) {
     updateHeightNode(left);
     return left;
 }
+
+Node *Avl::rotateLeft(Node *&node) {
+    Node *right = node->right;
+    Node *left = right->left;
+    right->left = node;
+    node->right = left;
+    updateHeightNode(node);
+    updateHeightNode(right);
+    return right;
+}

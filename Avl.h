@@ -14,6 +14,8 @@ private:
 
     Node *rotateRight(Node *&node);
 
+    Node *rotateLeft(Node *&node);
+
 public:
     int getHeight();
 };
