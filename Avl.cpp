@@ -39,3 +39,8 @@ Node *Avl::rotateLeft(Node *&node) {
     updateHeightNode(right);
     return right;
 }
+
+int Avl::getBalance(Node *&n) {
+    return (n == nullptr) ? 0 : getHeight(n->right) - getHeight(n->left);
+
+}
