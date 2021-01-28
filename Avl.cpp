@@ -17,7 +17,7 @@ int Avl::getHeight() {
 }
 
 void Avl::updateHeightNode(Node *&node) {
-    node->height = (short) (max(getHeight(node->left), getHeight(node->right)) + 1);
+    node->height = (short) getHeight(node);
 }
 
 Node *Avl::rotateRight(Node *&node) {
