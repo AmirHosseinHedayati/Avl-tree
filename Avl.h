@@ -28,6 +28,10 @@ private:
 
 public:
     int getHeight();
+
+    void reBalance() {
+        tree = reBalance(tree);
+    }
 };
 
 
