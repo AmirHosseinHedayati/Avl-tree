@@ -12,6 +12,8 @@ private:
 
     void updateHeightNode(Node *&n);
 
+    Node *rotateRight(Node *&node);
+
 public:
     int getHeight();
 };
