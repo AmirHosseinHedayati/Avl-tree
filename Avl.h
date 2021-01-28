@@ -43,6 +43,9 @@ public:
         tree = deleteNode(tree, data);
     }
 
+    Node *find(int data) {
+        return find(tree, data);
+    }
 };
 
 
