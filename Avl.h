@@ -32,6 +32,10 @@ public:
     void reBalance() {
         tree = reBalance(tree);
     }
+
+    void addNode(int data) {
+        tree = addNode(tree, data);
+    }
 };
 
 
