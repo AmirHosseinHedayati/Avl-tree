@@ -112,3 +112,7 @@ Node *Avl::find(Node *&node, int data) {
         return nullptr;
 }
 
+Node *Avl::getTree() const {
+    return tree;
+}
+

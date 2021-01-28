@@ -36,6 +36,8 @@ public:
     void addNode(int data) {
         tree = addNode(tree, data);
     }
+
+    Node *getTree() const;
 };
 
 
