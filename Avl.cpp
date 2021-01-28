@@ -42,5 +42,25 @@ Node *Avl::rotateLeft(Node *&node) {
 
 int Avl::getBalance(Node *&n) {
     return (n == nullptr) ? 0 : getHeight(n->right) - getHeight(n->left);
+}
 
+Node *Avl::reBalance(Node *&node) {
+    updateHeightNode(node);
+    int bal = getBalance(node);
+    if (bal > 1) {
+        if (getHeight(node->right->right) > getHeight(node->right->left)) {
+            node = rotateLeft(node);
+        } else {
+            node->right = rotateRight(node->right);
+            node = rotateLeft(node);
+        }
+    } else if (bal < -1) {
+        if (getHeight(node->left->left) > getHeight(node->left->right))
+            node = rotateRight(node);
+        else {
+            node->left = rotateLeft(node->left);
+            node = rotateRight(node);
+        }
+    }
+    return node;
 }

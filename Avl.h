@@ -18,6 +18,7 @@ private:
 
     int getBalance(Node *&node);
 
+    Node *reBalance(Node *&node);
 
 public:
     int getHeight();
