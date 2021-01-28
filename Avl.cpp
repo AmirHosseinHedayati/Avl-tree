@@ -77,3 +77,25 @@ Node *Avl::addNode(Node *&node, int data) {
     }
     return reBalance(node);
 }
+
+Node *Avl::deleteNode(Node *&node, int data) {
+    if (node == nullptr) {
+        return nullptr;
+    } else if (node->data < data) {
+        node->right = deleteNode(node->right, data);
+    } else if (node->data > data) {
+        node->left = deleteNode(node->left, data);
+    } else {
+        if (node->left == nullptr || node->right == nullptr) {
+            node = (node->left == nullptr) ? node->right : node->left;
+        } else {
+            Node *mostLeftChild = node->right;
+            node->data = mostLeftChild->data;
+            node->right = deleteNode(node->right, node->data);
+        }
+    }
+    if (node != nullptr) {
+        node = reBalance(node);
+    }
+    return node;
+}

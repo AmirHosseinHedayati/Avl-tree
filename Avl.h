@@ -22,6 +22,8 @@ private:
 
     Node *addNode(Node *&node, int data);
 
+    Node *deleteNode(Node *&node, int data);
+
 public:
     int getHeight();
 };
