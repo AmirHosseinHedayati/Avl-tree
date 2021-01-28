@@ -99,3 +99,16 @@ Node *Avl::deleteNode(Node *&node, int data) {
     }
     return node;
 }
+
+Node *Avl::find(Node *&node, int data) {
+    if (node != nullptr) {
+        if (node->data == data)
+            return node;
+        else if (node->data < data)
+            return find(node->right, data);
+        else
+            return find(node->left, data);
+    } else
+        return nullptr;
+}
+

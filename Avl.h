@@ -24,6 +24,8 @@ private:
 
     Node *deleteNode(Node *&node, int data);
 
+    Node *find(Node *&node, int data);
+
 public:
     int getHeight();
 };
