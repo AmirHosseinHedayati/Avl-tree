@@ -10,6 +10,8 @@ private:
 
     int getHeight(Node *tree);
 
+    void updateHeightNode(Node *&n);
+
 public:
     int getHeight();
 };

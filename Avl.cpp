@@ -15,3 +15,9 @@ int Avl::getHeight(Node *tree) {
 int Avl::getHeight() {
     return getHeight(tree);
 }
+
+void Avl::updateHeightNode(Node *&node) {
+    node->height = (short) (max(getHeight(node->left), getHeight(node->right)) + 1);
+
+
+}
