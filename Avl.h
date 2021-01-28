@@ -38,6 +38,11 @@ public:
     }
 
     Node *getTree() const;
+
+    void deleteNode(int data) {
+        tree = deleteNode(tree, data);
+    }
+
 };
 
 
